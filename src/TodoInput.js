@@ -13,23 +13,20 @@ export const TodoInput = () => {
             return;
         }
 
-        let todo = {
+
+        let todolist = [...todos, {
             text: value,
             task_status: 0
-        }
-        setValue("")
-        let todolist = [...todos, { todo }];
+        }];
+        console.log(todolist);
         setTodo(todolist);
+        setValue("")
+
     }
 
     return (
         <form onSubmit={updateList}>
-            <input
-                type="text"
-                className="input"
-                value={value}
-                onChange={e => setValue(e.target.value)}
-            />
+            <input type="text" value={value} onChange={e => setValue(e.target.value)} />
         </form>
     )
 }
